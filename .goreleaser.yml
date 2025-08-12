@@ -38,7 +38,7 @@ dockers:
     ids:
       - migrate
     image_templates:
-      - 'ctrlszhero/migrate-local-changes:{{ .Tag }}-amd64'
+      - 'ctrlzhero/migrate-local-changes:{{ .Tag }}-amd64'
     build_flag_templates:
       - '--label=org.opencontainers.image.created={{ .Date }}'
       - '--label=org.opencontainers.image.title={{ .ProjectName }}'
@@ -48,15 +48,15 @@ dockers:
       - "--platform=linux/amd64"
 
 docker_manifests:
-- name_template: 'ctrlszhero/migrate-local-changes:{{ .Tag }}'
+- name_template: 'ctrlzhero/migrate-local-changes:{{ .Tag }}'
   image_templates:
-  - 'ctrlszhero/migrate-local-changes:{{ .Tag }}-amd64'
-- name_template: 'ctrlszhero/migrate-local-changes:{{ .Major }}'
+  - 'ctrlzhero/migrate-local-changes:{{ .Tag }}-amd64'
+- name_template: 'ctrlzhero/migrate-local-changes:{{ .Major }}'
   image_templates:
-  - 'ctrlszhero/migrate-local-changes:{{ .Tag }}-amd64'
-- name_template: 'ctrlszhero/migrate-local-changes:latest'
+  - 'ctrlzhero/migrate-local-changes:{{ .Tag }}-amd64'
+- name_template: 'ctrlzhero/migrate-local-changes:latest'
   image_templates:
-  - 'ctrlszhero/migrate-local-changes:{{ .Tag }}-amd64'
+  - 'ctrlzhero/migrate-local-changes:{{ .Tag }}-amd64'
 archives:
   - name_template: "{{ .ProjectName }}.{{ .Os }}-{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     format_overrides:
