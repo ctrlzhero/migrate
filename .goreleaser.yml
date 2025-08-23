@@ -65,7 +65,7 @@ archives:
 checksum:
   name_template: 'sha256sum.txt'
 release:
-  draft: true
+  draft: false
   prerelease: auto
 source:
   enabled: true
